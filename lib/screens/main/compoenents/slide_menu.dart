@@ -56,11 +56,11 @@ class SlideMenu extends StatelessWidget {
                 title: 'Profhile',
               ),
               DrawerListTile(
-                onPress: () {},
+                onPress: () => menuController.setSelectedItem(MenuItems.login),
                 isSelected:
                     menuController.selectedItem.value == MenuItems.login,
                 svgSrc: "assets/icons/menu_profile.svg",
-                title: 'Logout',
+                title: 'Login',
               ),
             ],
           ),
