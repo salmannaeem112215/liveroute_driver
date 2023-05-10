@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:liveroute_driver/configs/themes/custom_text_styles.dart';
 import 'package:liveroute_driver/configs/themes/ui_parameters.dart';
 
+import '../../../configs/constants.dart';
+
 class LoginForm extends StatelessWidget {
   const LoginForm({super.key});
 
@@ -24,6 +26,7 @@ class LoginForm extends StatelessWidget {
             validator: emailValidator,
           ),
           kHeightSpace,
+          kHalfHeightpace,
           TextFormField(
             cursorColor: Colors.black,
             style: const TextStyle(
@@ -62,41 +65,49 @@ class LoginForm extends StatelessWidget {
   String? emailValidator(String? val) {
     if (val == null || val == '') {
       return 'Please Enter Email';
+    } else if (isEmailValid(val) == false) {
+      return 'Invalid Email';
+    } else {
+      return null;
     }
   }
 
-  String? passwordValidator(String? val) {
-    return 'sssss';
+  String? passwordValidator(String? password) {
+    if (password == null || password.isEmpty) {
+      return 'Password is required';
+    } else {
+      List<String> errors = [];
+      if (password.length < 8) {
+        errors.add('Required 8 characters long');
+      }
+      if (!password.contains(RegExp(r'[A-Z]'))) {
+        errors.add('Required one uppercase letter');
+      }
+      if (!password.contains(RegExp(r'[a-z]'))) {
+        errors.add('Required one lowercase letter');
+      }
+      if (!password.contains(RegExp(r'[0-9]'))) {
+        errors.add('Required one digit');
+      }
+      if (!password.contains(RegExp(r'[!@#$%^&*(),.?":{}|<>]'))) {
+        errors.add('Required one speacial character');
+      }
+
+      if (errors.isEmpty) {
+        return null;
+      } else {
+        String error = '';
+        for (int i = 0; i < errors.length; i++) {
+          error += errors[i];
+          if (i != errors.length - 1) error += '\n';
+        }
+        return error;
+      }
+    }
   }
-}
 
-class HalfBorderShape extends ShapeBorder {
-  const HalfBorderShape();
-
-  @override
-  EdgeInsetsGeometry get dimensions => EdgeInsets.zero;
-
-  @override
-  Path getInnerPath(Rect rect, {TextDirection? textDirection}) {
-    return getOuterPath(rect, textDirection: textDirection)!;
-  }
-
-  @override
-  Path getOuterPath(Rect rect, {TextDirection? textDirection}) {
-    final path = Path();
-    path.moveTo(rect.topLeft.dx, rect.topLeft.dy);
-    path.lineTo(rect.topRight.dx, rect.topRight.dy);
-    path.lineTo(rect.bottomRight.dx, rect.bottomRight.dy * 0.5);
-    path.lineTo(rect.bottomLeft.dx, rect.bottomLeft.dy * 0.5);
-    path.close();
-    return path;
-  }
-
-  @override
-  void paint(Canvas canvas, Rect rect, {TextDirection? textDirection}) {}
-
-  @override
-  ShapeBorder scale(double t) {
-    return HalfBorderShape();
+  bool isEmailValid(String email) {
+    final RegExp regex = RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,}$');
+    return regex.hasMatch(email);
   }
 }
