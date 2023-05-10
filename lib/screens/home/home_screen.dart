@@ -16,7 +16,6 @@ class HomeScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: const [
             Header(title: 'Home'),
-            kHeightSpace,
             Body(),
           ],
         ),
