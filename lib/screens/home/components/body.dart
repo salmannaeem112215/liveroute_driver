@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:liveroute_driver/configs/themes/custom_text_styles.dart';
-import 'package:liveroute_driver/configs/themes/ui_parameters.dart';
+
+import '../../../configs/themes/custom_text_styles.dart';
+import '../../../configs/themes/ui_parameters.dart';
+import './rotue_tile.dart';
 
 class Body extends StatelessWidget {
   const Body({super.key});
@@ -18,32 +20,11 @@ class Body extends StatelessWidget {
           ],
         ),
         kHeightSpace,
-        Container(
-          width: double.infinity,
-          padding: const EdgeInsets.symmetric(
-              horizontal: defaultPadding, vertical: defaultPadding / 2),
-          decoration: BoxDecoration(
-              color: Colors.amber,
-              borderRadius: BorderRadius.circular(defaultPadding)),
-          child: SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-            child: Row(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Chip(label: Text('M')),
-                kWidthSpace,
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text('Title'),
-                    Text('Driver'),
-                    Text('Bus'),
-                  ],
-                ),
-              ],
-            ),
-          ),
-        )
+        const RouteTile(type: 'M', name: '5', driver: 'Rana', bus: 'LEK-007'),
+        kHalfHeightpace,
+        const RouteTile(type: 'M', name: '5', driver: 'Rana', bus: 'LEK-007'),
+        kHalfHeightpace,
+        const RouteTile(type: 'M', name: '5', driver: 'Rana', bus: 'LEK-007'),
       ],
     );
   }

@@ -32,3 +32,21 @@ Widget kTextFormLabel(String label) {
     child: Text(label),
   );
 }
+
+const kChipTextStyle = TextStyle(
+  color: logoBlack,
+  fontSize: 16,
+  fontWeight: FontWeight.w700,
+);
+
+const kTileTitle = TextStyle(
+  color: Colors.white,
+  fontSize: 18,
+  fontWeight: FontWeight.w400,
+);
+
+const kTileSubTitle = TextStyle(
+  color: Colors.white70,
+  fontSize: 14,
+  fontWeight: FontWeight.w400,
+);
