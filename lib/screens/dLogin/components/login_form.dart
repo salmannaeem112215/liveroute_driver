@@ -1,21 +1,30 @@
 import 'package:flutter/material.dart';
-import 'package:liveroute_driver/configs/themes/custom_text_styles.dart';
-import 'package:liveroute_driver/configs/themes/ui_parameters.dart';
-
-import '../../../configs/constants.dart';
+import 'package:get/get_connect/http/src/utils/utils.dart';
+import '../../../configs/themes/custom_text_styles.dart';
+import '../../../configs/themes/ui_parameters.dart';
 
 class LoginForm extends StatelessWidget {
-  const LoginForm({super.key});
+  const LoginForm({
+    super.key,
+    required this.email,
+    required this.password,
+    required this.formKey,
+  });
+  final TextEditingController email;
+  final TextEditingController password;
+  final GlobalKey<FormState> formKey;
 
   @override
   Widget build(BuildContext context) {
-    final formKey = GlobalKey<FormState>();
+    final FocusNode _emailFocusNode = FocusNode();
+    final FocusNode _passwordFocusNode = FocusNode();
     return Form(
       key: formKey,
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
           TextFormField(
+            controller: email,
             cursorColor: Colors.black,
             style: const TextStyle(
               color: Colors.black87,
@@ -23,11 +32,19 @@ class LoginForm extends StatelessWidget {
             decoration: InputDecoration(
               label: kTextFormLabel('Email'),
             ),
+            textInputAction: TextInputAction.next,
+            focusNode: _emailFocusNode,
+            onFieldSubmitted: (term) {
+              _emailFocusNode.unfocus();
+              FocusScope.of(context).requestFocus(_passwordFocusNode);
+            },
             validator: emailValidator,
           ),
           kHeightSpace,
           kHalfHeightpace,
           TextFormField(
+            controller: password,
+            obscureText: true,
             cursorColor: Colors.black,
             style: const TextStyle(
               color: Colors.black87,
@@ -35,31 +52,13 @@ class LoginForm extends StatelessWidget {
             decoration: InputDecoration(
               label: kTextFormLabel('Password'),
             ),
+            textInputAction: TextInputAction.done,
+            focusNode: _passwordFocusNode,
             validator: passwordValidator,
           ),
-          const SizedBox(height: 30),
-          loginButton(formKey),
         ],
       ),
     );
-  }
-
-  SizedBox loginButton(GlobalKey<FormState> formKey) {
-    return SizedBox(
-      width: double.infinity,
-      child: ElevatedButton(
-        style: ElevatedButton.styleFrom(
-          padding: const EdgeInsets.symmetric(vertical: 20),
-          backgroundColor: Color(0xFF454545),
-        ),
-        onPressed: () => loginFunction(formKey),
-        child: const Text('Login'),
-      ),
-    );
-  }
-
-  loginFunction(GlobalKey<FormState> form) {
-    form.currentState!.validate();
   }
 
   String? emailValidator(String? val) {

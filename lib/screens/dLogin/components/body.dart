@@ -1,12 +1,17 @@
 import 'package:flutter/material.dart';
 
 import './login_form.dart';
+import 'login_button.dart';
 
 class Body extends StatelessWidget {
   const Body({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final email = TextEditingController();
+    final password = TextEditingController();
+    final formKey = GlobalKey<FormState>();
+
     return Column(
       children: [
         Image.asset(
@@ -26,9 +31,30 @@ class Body extends StatelessWidget {
           ),
         ),
         const SizedBox(height: 50),
-        const LoginForm(),
+        LoginForm(
+          email: email,
+          password: password,
+          formKey: formKey,
+        ),
+        const SizedBox(height: 30),
+        SizedBox(
+          width: double.infinity,
+          child: LoadingButton(
+            text: 'Login',
+            onTap: () async {
+              await loginFunction(formKey, email, password);
+            },
+          ),
+        ),
         const SizedBox(height: 50),
       ],
     );
+  }
+
+  Future<void> loginFunction(GlobalKey<FormState> formKey,
+      TextEditingController email, TextEditingController password) async {
+    if (formKey.currentState!.validate()) {
+      await Future.delayed(const Duration(seconds: 2));
+    } else {}
   }
 }
