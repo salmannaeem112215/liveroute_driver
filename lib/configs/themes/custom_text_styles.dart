@@ -20,3 +20,13 @@ final whiteElevatedButton = ElevatedButton.styleFrom(
 
 const kTextStyle = TextStyle(color: Colors.black);
 const kHintStyle = TextStyle(color: Colors.black38);
+
+Widget kTextFormLabel(String label) {
+  return Container(
+    padding: const EdgeInsets.all(7),
+    decoration: const BoxDecoration(
+        color: Colors.white70,
+        borderRadius: BorderRadius.vertical(top: Radius.circular(5))),
+    child: Text(label),
+  );
+}

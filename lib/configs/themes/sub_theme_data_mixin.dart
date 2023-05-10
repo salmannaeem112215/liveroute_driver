@@ -27,6 +27,7 @@ mixin SubThemeData {
     return const InputDecorationTheme(
       floatingLabelBehavior: FloatingLabelBehavior.always,
       labelStyle: TextStyle(
+        // backgroundColor: Colors.white60,
         color: Colors.black,
         fontSize: 18,
         fontWeight: FontWeight.w400,
