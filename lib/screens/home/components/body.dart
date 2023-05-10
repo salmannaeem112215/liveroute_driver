@@ -19,12 +19,24 @@ class Body extends StatelessWidget {
             ),
           ],
         ),
-        kHeightSpace,
-        const RouteTile(type: 'M', name: '5', driver: 'Rana', bus: 'LEK-007'),
         kHalfHeightpace,
-        const RouteTile(type: 'M', name: '5', driver: 'Rana', bus: 'LEK-007'),
-        kHalfHeightpace,
-        const RouteTile(type: 'M', name: '5', driver: 'Rana', bus: 'LEK-007'),
+        SizedBox(
+          height: 400,
+          child: ListView.separated(
+            itemBuilder: (ctx, index) => RouteTile(
+              type: 'M',
+              name: '5',
+              driver: 'Rana',
+              bus: 'LEK-007',
+              onTap: () async {},
+            ),
+            separatorBuilder: (ctx, index) {
+              print(index);
+              return kHeightSpace;
+            },
+            itemCount: 7,
+          ),
+        ),
       ],
     );
   }
