@@ -12,7 +12,7 @@ enum MenuItems {
 }
 
 class CustomMenuController extends GetxController {
-  final selectedItem = MenuItems.home.obs;
+  final selectedItem = MenuItems.login.obs;
 
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 

@@ -25,13 +25,25 @@ mixin SubThemeData {
 
   InputDecorationTheme getInputDecorationLightTheme() {
     return const InputDecorationTheme(
+      floatingLabelBehavior: FloatingLabelBehavior.always,
+      labelStyle: TextStyle(
+        color: Colors.black,
+        fontSize: 18,
+        fontWeight: FontWeight.w400,
+      ),
+      fillColor: Colors.white,
+      filled: true,
       enabledBorder: OutlineInputBorder(
-        borderSide: BorderSide(
-          color: Colors.black26,
-        ),
+        borderSide: BorderSide(color: Colors.black26),
       ),
       focusedBorder: OutlineInputBorder(
-        borderSide: BorderSide(color: Colors.black38),
+        borderSide: BorderSide(color: Colors.black45),
+      ),
+      errorBorder: OutlineInputBorder(
+        borderSide: BorderSide(color: Color(0x78F44336)),
+      ),
+      focusedErrorBorder: OutlineInputBorder(
+        borderSide: BorderSide(color: Color.fromARGB(200, 244, 67, 54)),
       ),
     );
   }

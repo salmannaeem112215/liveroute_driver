@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:liveroute_driver/configs/themes/ui_parameters.dart';
 
 class Responsive extends StatelessWidget {
   final Widget? mobile;
@@ -30,6 +31,8 @@ class Responsive extends StatelessWidget {
 
   static double screenHeight(BuildContext context) =>
       MediaQuery.of(context).size.height;
+  static double screenHeightPadding(BuildContext context) =>
+      MediaQuery.of(context).size.height - 2 * defaultPadding;
 
   static double screenWidth(BuildContext context) =>
       MediaQuery.of(context).size.width;
