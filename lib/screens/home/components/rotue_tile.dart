@@ -40,7 +40,7 @@ class _RouteTileState extends State<RouteTile> {
                 ? null
                 : tapFunction
             : null,
-        hoverColor: widget.onTap != null ? Colors.black45 : null,
+        hoverColor: widget.onTap != null ? Colors.black12 : null,
         customBorder: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(defaultPadding)),
         child: Container(
