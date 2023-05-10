@@ -20,6 +20,8 @@ final whiteElevatedButton = ElevatedButton.styleFrom(
 
 const kTextStyle = TextStyle(color: Colors.black);
 const kHintStyle = TextStyle(color: Colors.black38);
+const kTitleTextStyle =
+    TextStyle(color: Colors.black, fontSize: 16, fontWeight: FontWeight.w500);
 
 Widget kTextFormLabel(String label) {
   return Container(

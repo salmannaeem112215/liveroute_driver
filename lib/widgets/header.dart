@@ -16,27 +16,31 @@ class Header extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final menuController = Get.find<CustomMenuController>();
-    return Row(
-      children: [
-        if (!Responsive.isDesktop(context))
-          IconButton(
-            onPressed: menuController.controlMenu,
-            icon: Icon(
-              Icons.menu,
+    return SingleChildScrollView(
+      scrollDirection: Axis.horizontal,
+      child: Row(
+        mainAxisSize: MainAxisSize.max,
+        children: [
+          if (!Responsive.isDesktop(context))
+            IconButton(
+              onPressed: menuController.controlMenu,
+              icon: Icon(
+                Icons.menu,
+                color: color,
+              ),
+            ),
+          Text(
+            title,
+            style: TextStyle(
               color: color,
+              fontSize: 20,
+              fontWeight: FontWeight.w500,
             ),
           ),
-        Text(
-          title,
-          style: TextStyle(
-            color: color,
-            fontSize: 20,
-            fontWeight: FontWeight.w500,
-          ),
-        ),
 
-        // const Expanded(child: SearchFeild())
-      ],
+          // const Expanded(child: SearchFeild())
+        ],
+      ),
     );
   }
 }

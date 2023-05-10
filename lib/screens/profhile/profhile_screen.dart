@@ -13,6 +13,7 @@ class ProfhileScreen extends StatelessWidget {
       child: SingleChildScrollView(
         padding: defaultEdgePadding,
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: const [
             Header(title: 'Profhile'),
             kHeightSpace,

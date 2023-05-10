@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:liveroute_driver/controllers/custom_menu_controller.dart';
 
 import './login_form.dart';
 import 'login_button.dart';
@@ -55,6 +57,7 @@ class Body extends StatelessWidget {
       TextEditingController email, TextEditingController password) async {
     if (formKey.currentState!.validate()) {
       await Future.delayed(const Duration(seconds: 2));
+      Get.find<CustomMenuController>().selectedItem.value = MenuItems.home;
     } else {}
   }
 }

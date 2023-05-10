@@ -13,6 +13,7 @@ class TrackingScreen extends StatelessWidget {
       child: SingleChildScrollView(
         padding: defaultEdgePadding,
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: const [
             Header(title: 'Tracking'),
             kHeightSpace,
