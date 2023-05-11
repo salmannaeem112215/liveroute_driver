@@ -18,30 +18,26 @@ class Body extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final avaliableHeight = Responsive.screenHeight(context) -
-        (Platform.isAndroid == true ? 35 : 0);
     final width = Responsive.avaliableWidth(context) - 2 * defaultPadding;
-    final userId = u1.userId;
-    return SizedBox(
-      height: avaliableHeight < 100 ? 100 : avaliableHeight,
-      child: Column(
-        children: [
-          const ChatHeader(),
-          Flexible(child: Container()),
-          // Flexible(
-          //   child: FutureList(
-          //       listTile: (chat) => ChatTile(
-          //             color: Colors.transparent,
-          //             chatCollection: ChatCollection.fromJson(chat),
-          //             width: width,
-          //           ),
-          //       getValues: MessageServices.getUserChats(userId)),
-          // ),
-          ChatTypingArea(
-            textController: TextEditingController(),
-          )
-        ],
-      ),
+    final userId = u2.userId;
+    print(MediaQuery.of(context).size);
+    return Column(
+      children: [
+        const ChatHeader(),
+        // Flexible(child: Container()),
+        Flexible(
+          child: FutureList(
+              listTile: (chat) => ChatTile(
+                    color: Colors.transparent,
+                    chatCollection: ChatCollection.fromJson(chat),
+                    width: width,
+                  ),
+              getValues: MessageServices.getUserChats(userId)),
+        ),
+        ChatTypingArea(
+          textController: TextEditingController(),
+        )
+      ],
     );
   }
 }

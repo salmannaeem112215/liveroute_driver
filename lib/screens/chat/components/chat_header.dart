@@ -27,12 +27,12 @@ class ChatHeader extends StatelessWidget {
             ),
             kHalfWidthSpace,
             ChatCircleTile(
-              image: u1.image,
+              image: u2.image,
               height: height - 10,
             ),
             kHalfWidthSpace,
             Text(
-              u1.name.capitalize!,
+              u2.name.capitalize!,
               style: kTileTitle,
             ),
             const Spacer(),
