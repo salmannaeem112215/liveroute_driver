@@ -2,22 +2,22 @@ import 'package:mongo_dart/mongo_dart.dart' as mongo;
 
 class ChatMember {
   mongo.ObjectId userId;
-  String email;
+  String name;
   String image;
   ChatMember({
     required this.userId,
-    required this.email,
+    required this.name,
     required this.image,
   });
 
   ChatMember.fromJson(Map<String, dynamic> json)
       : userId = json['user_id'],
-        email = json['email'],
+        name = json['name'],
         image = json['image'];
   Map<String, dynamic> toJson() {
     return {
       "user_id": userId,
-      "email": email,
+      "name": name,
       "image": image,
     };
   }

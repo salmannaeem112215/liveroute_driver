@@ -42,6 +42,12 @@ class Responsive extends StatelessWidget {
     return width >= desktopSize ? (width * 5 / 6) : width;
   }
 
+  static double avaliableHeight(BuildContext context) {
+    final avaliableHeight =
+        MediaQuery.of(context).size.height - 2 * defaultPadding - 50;
+    return avaliableHeight;
+  }
+
   @override
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;

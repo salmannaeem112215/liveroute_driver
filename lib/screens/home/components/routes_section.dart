@@ -1,9 +1,13 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../controllers/custom_menu_controller.dart';
 import '../../../responsive.dart';
 import '../../../configs/themes/ui_parameters.dart';
+import '../../../services/route_services.dart';
+import '../../../services/services.dart';
+import '../../../widgets/future_list.dart';
 import './rotue_tile.dart';
 import './custom_title.dart';
 
@@ -25,17 +29,20 @@ class RouteSection extends StatelessWidget {
 
         SizedBox(
           height: height,
-          child: ListView.separated(
-            itemBuilder: (ctx, index) => RouteTile(
-              type: 'M',
-              name: '5',
-              driver: 'Rana',
-              bus: 'LEK-007',
-              onTap: () async {},
-              color: Colors.pink,
+          child: FutureList(
+            getValues: RouteServices.getRoutes(),
+            seprateBuilder: (ctx, index) => kHalfHeightpace,
+            listTile: (route) => RouteTile(
+              type: route['type'],
+              name: route['name'],
+              bus: route['bus'],
+              driver: route['driver'],
+              onTap: () async {
+                if (kDebugMode) {
+                  print(route);
+                }
+              },
             ),
-            separatorBuilder: (ctx, index) => kHalfHeightpace,
-            itemCount: 7,
           ),
         ),
       ],

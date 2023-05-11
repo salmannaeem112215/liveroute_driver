@@ -5,7 +5,9 @@ import 'package:get/get.dart';
 import '../../../controllers/custom_menu_controller.dart';
 import '../../../responsive.dart';
 import '../../../configs/themes/ui_parameters.dart';
+import '../../../services/message_data.dart';
 import '../../../services/services.dart';
+import '../../../services/tracking_services.dart';
 import '../../../widgets/future_list.dart';
 import './rotue_tile.dart';
 import './custom_title.dart';
@@ -28,7 +30,7 @@ class TrackingSection extends StatelessWidget {
         SizedBox(
           height: height,
           child: FutureList(
-            getValues: Services.getRoutes(),
+            getValues: TrackingServices.getTrackings(u1.userId),
             seprateBuilder: (ctx, index) => kHalfHeightpace,
             listTile: (route) => RouteTile(
               type: route['type'],

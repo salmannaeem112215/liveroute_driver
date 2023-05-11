@@ -26,67 +26,67 @@ final chatCollections = [
 
 final u1 = ChatMember(
     userId: mongo.ObjectId(),
-    email: 'u1@gmail.com',
+    name: 'u1@gmail.com',
     image:
         "https://raw.githubusercontent.com/salmannaeem112215/images/main/profhile/square/pic1.jpg");
 final u2 = ChatMember(
     userId: mongo.ObjectId(),
-    email: 'u2@gmail.com',
+    name: 'u2@gmail.com',
     image:
         "https://raw.githubusercontent.com/salmannaeem112215/images/main/profhile/square/pic2.jpg");
 final u3 = ChatMember(
     userId: mongo.ObjectId(),
-    email: 'u3@gmail.com',
+    name: 'u3@gmail.com',
     image:
         "https://raw.githubusercontent.com/salmannaeem112215/images/main/profhile/square/pic3.jpg");
 final u4 = ChatMember(
     userId: mongo.ObjectId(),
-    email: 'u4@gmail.com',
+    name: 'u4@gmail.com',
     image:
         "https://raw.githubusercontent.com/salmannaeem112215/images/main/profhile/square/pic4.jpg");
 final u5 = ChatMember(
     userId: mongo.ObjectId(),
-    email: 'u5@gmail.com',
+    name: 'u5@gmail.com',
     image:
         "https://raw.githubusercontent.com/salmannaeem112215/images/main/profhile/square/pic5.jpg");
 final u6 = ChatMember(
     userId: mongo.ObjectId(),
-    email: 'u6@gmail.com',
+    name: 'u6@gmail.com',
     image:
         "https://raw.githubusercontent.com/salmannaeem112215/images/main/profhile/square/pic6.jpg");
 final u7 = ChatMember(
     userId: mongo.ObjectId(),
-    email: 'u7@gmail.com',
+    name: 'u7@gmail.com',
     image:
         "https://raw.githubusercontent.com/salmannaeem112215/images/main/profhile/square/pic7.jpg");
 final u8 = ChatMember(
     userId: mongo.ObjectId(),
-    email: 'u8@gmail.com',
+    name: 'u8@gmail.com',
     image:
         "https://raw.githubusercontent.com/salmannaeem112215/images/main/profhile/square/pic8.jpg");
 final u9 = ChatMember(
     userId: mongo.ObjectId(),
-    email: 'u9@gmail.com',
+    name: 'u9@gmail.com',
     image:
         "https://raw.githubusercontent.com/salmannaeem112215/images/main/profhile/square/pic9.jpg");
 final u10 = ChatMember(
     userId: mongo.ObjectId(),
-    email: 'u10@gmail.com',
+    name: 'u10@gmail.com',
     image:
         "https://raw.githubusercontent.com/salmannaeem112215/images/main/profhile/square/pic10.jpg");
 final u11 = ChatMember(
     userId: mongo.ObjectId(),
-    email: 'u11@gmail.com',
+    name: 'u11@gmail.com',
     image:
         "https://raw.githubusercontent.com/salmannaeem112215/images/main/profhile/square/pic11.jpg");
 final u12 = ChatMember(
     userId: mongo.ObjectId(),
-    email: 'u12@gmail.com',
+    name: 'u12@gmail.com',
     image:
         "https://raw.githubusercontent.com/salmannaeem112215/images/main/profhile/square/pic12.jpg");
 final u13 = ChatMember(
     userId: mongo.ObjectId(),
-    email: 'u13@gmail.com',
+    name: 'u13@gmail.com',
     image:
         "https://raw.githubusercontent.com/salmannaeem112215/images/main/profhile/square/pic13.jpg");
 
@@ -152,6 +152,7 @@ final c12 = ChatCollection(
     unreadCount: 1);
 final c13 = ChatCollection(
   id: mongo.ObjectId(),
+  name: 'UET',
   type: ChatCollectionType.group,
   members: [u1, u2, u3, u4, u5, u6, u7, u8, u9, u10, u11, u12, u13],
   unreadCount: 1,
@@ -161,6 +162,7 @@ final c13 = ChatCollection(
 final c14 = ChatCollection(
   id: mongo.ObjectId(),
   type: ChatCollectionType.group,
+  name: 'Route 5',
   members: [u1, u2, u3, u4, u5],
   unreadCount: 1,
   image:
@@ -168,6 +170,7 @@ final c14 = ChatCollection(
 );
 final c15 = ChatCollection(
   id: mongo.ObjectId(),
+  name: 'Route 6',
   type: ChatCollectionType.group,
   members: [u1, u6, u7, u8, u9],
   unreadCount: 1,
@@ -176,6 +179,7 @@ final c15 = ChatCollection(
 );
 final c16 = ChatCollection(
   id: mongo.ObjectId(),
+  name: 'Route 7',
   type: ChatCollectionType.group,
   members: [u1, u10, u11, u13],
   unreadCount: 1,
