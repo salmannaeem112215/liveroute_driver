@@ -52,7 +52,6 @@ class _ChatTileState extends State<ChatTile> {
         customBorder: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(defaultPadding)),
         child: Container(
-          width: double.infinity,
           padding: const EdgeInsets.symmetric(
               horizontal: defaultPadding, vertical: defaultPadding / 2),
           child: SingleChildScrollView(
@@ -82,9 +81,11 @@ class _ChatTileState extends State<ChatTile> {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Text(
-                                name,
-                                overflow: TextOverflow.ellipsis,
+                              Flexible(
+                                child: Text(
+                                  name,
+                                  overflow: TextOverflow.ellipsis,
+                                ),
                               ),
                               if (timestamp != null)
                                 Text(
@@ -96,9 +97,11 @@ class _ChatTileState extends State<ChatTile> {
                             mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Text(
-                                content ?? '',
-                                overflow: TextOverflow.ellipsis,
+                              Flexible(
+                                child: Text(
+                                  content ?? '',
+                                  overflow: TextOverflow.ellipsis,
+                                ),
                               ),
                               kWidthSpace,
                               NotificationCircle(num: unreadCount ?? -1),
