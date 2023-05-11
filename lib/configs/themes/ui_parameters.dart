@@ -16,6 +16,8 @@ const EdgeInsets defaultVerticalPadding =
     EdgeInsets.symmetric(vertical: defaultPadding);
 const EdgeInsets defaultHorizontalPadding =
     EdgeInsets.symmetric(horizontal: defaultPadding);
+const EdgeInsets kHaldHorizontalPadding =
+    EdgeInsets.symmetric(horizontal: defaultPadding / 2);
 final BorderRadius cardBoardRadius = BorderRadius.circular(cardBorderRadius);
 const EdgeInsets defaultTopPadding = EdgeInsets.only(top: defaultPadding);
 const EdgeInsets defaultBottomPadding = EdgeInsets.only(bottom: defaultPadding);
