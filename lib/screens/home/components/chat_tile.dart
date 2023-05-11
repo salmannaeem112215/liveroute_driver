@@ -39,11 +39,11 @@ class _ChatTileState extends State<ChatTile> {
     final timestamp = widget.chatCollection.chatTimestamp;
     final content = widget.chatCollection.chatContent;
 
-    final avaliableTileWidth = widget.width;
-    final double imageWidth = widget.imageHeight < 60 ? 60 : widget.imageHeight;
+    // final avaliableTileWidth = widget.width;
+    // final double imageWidth = widget.imageHeight < 60 ? 60 : widget.imageHeight;
 
-    final sTextWidth = avaliableTileWidth - imageWidth - defaultPadding;
-    final double textWidth = sTextWidth < 100 ? 100 : sTextWidth;
+    // final sTextWidth = avaliableTileWidth - imageWidth - defaultPadding;
+    // final double textWidth = sTextWidth < 100 ? 100 : sTextWidth;
 
     // final s =
     final controller = ScrollController();
@@ -59,68 +59,60 @@ class _ChatTileState extends State<ChatTile> {
         child: Container(
           padding: const EdgeInsets.symmetric(
               horizontal: 0, vertical: defaultPadding / 2),
-          child: SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-            controller: controller,
-            child: Scrollbar(
-              controller: controller,
-              child: SizedBox(
-                width: widget.imageHeight + defaultPadding + textWidth,
-                child: Row(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    SizedBox(
-                      width: imageWidth,
-                      child: ChatCircleTile(
-                        image: image,
-                        height: imageWidth,
-                      ),
-                    ),
-                    kWidthSpace,
-                    SizedBox(
-                      width: textWidth,
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
+          child: Row(
+            mainAxisSize: MainAxisSize.max,
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              ChatCircleTile(
+                image: image,
+                height: widget.imageHeight,
+              ),
+              kWidthSpace,
+              Flexible(
+                child: Container(
+                  color: Colors.white,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Row(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Flexible(
-                                child: Text(
-                                  name,
-                                  overflow: TextOverflow.ellipsis,
-                                ),
-                              ),
-                              if (timestamp != null)
-                                Text(
-                                  formatTime(timestamp.hour, timestamp.minute),
-                                ),
-                            ],
+                          Flexible(
+                            child: Text(
+                              name,
+                              overflow: TextOverflow.ellipsis,
+                            ),
                           ),
-                          kHalfHeightpace,
-                          Row(
-                            mainAxisSize: MainAxisSize.max,
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Flexible(
-                                child: Text(
-                                  content ?? '',
-                                  overflow: TextOverflow.ellipsis,
-                                ),
-                              ),
-                              kWidthSpace,
-                              NotificationCircle(num: unreadCount ?? -1),
-                            ],
-                          ),
+                          if (timestamp != null)
+                            Text(
+                              formatTime(timestamp.hour, timestamp.minute),
+                            ),
                         ],
                       ),
-                    ),
-                  ],
+                      kHalfHeightpace,
+                      Row(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Flexible(
+                            child: Text(
+                              content ?? '',
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                          ),
+                          kWidthSpace,
+                          NotificationCircle(num: unreadCount ?? -1),
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
               ),
-            ),
+            ],
           ),
+          // ),
+          // ),
         ),
       ),
     );

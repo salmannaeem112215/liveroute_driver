@@ -18,19 +18,16 @@ class Body extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final width = Responsive.avaliableWidth(context) - 2 * defaultPadding;
     final userId = u2.userId;
-    print(MediaQuery.of(context).size);
     return Column(
       children: [
         const ChatHeader(),
-        // Flexible(child: Container()),
         Flexible(
           child: FutureList(
               listTile: (chat) => ChatTile(
                     color: Colors.transparent,
                     chatCollection: ChatCollection.fromJson(chat),
-                    width: width,
+                    // width: width,
                   ),
               getValues: MessageServices.getUserChats(userId)),
         ),
