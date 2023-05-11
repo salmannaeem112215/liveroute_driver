@@ -23,7 +23,7 @@ class Body extends StatelessWidget {
                 color: Colors.transparent,
                 chatCollection: ChatCollection.fromJson(chat),
               ),
-          seprateBuilder: (ctx, index) => kHalfHeightpace,
+          // seprateBuilder: (ctx, index) => kHalfHeightpace,
           getValues: MessageServices.getUserChats(userId)),
     );
   }
