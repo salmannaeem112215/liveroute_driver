@@ -6,6 +6,8 @@ import '../../../models/message/chat_collection.dart';
 import '../../../screens/home/components/chat_circle_tile.dart';
 import '../../../configs/themes/ui_parameters.dart';
 
+import 'package:mongo_dart/mongo_dart.dart' as mongo;
+
 class ChatTile extends StatefulWidget {
   const ChatTile({
     super.key,
@@ -41,6 +43,7 @@ class _ChatTileState extends State<ChatTile> {
     final sTextWidth = avaliableTileWidth - imageWidth - defaultPadding;
     final double textWidth = sTextWidth < 100 ? 100 : sTextWidth;
 
+    // final s =
     final controller = ScrollController();
     return Material(
       shape: RoundedRectangleBorder(
@@ -93,6 +96,7 @@ class _ChatTileState extends State<ChatTile> {
                                 ),
                             ],
                           ),
+                          kHalfHeightpace,
                           Row(
                             mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
