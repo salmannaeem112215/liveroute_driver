@@ -3,6 +3,8 @@ import 'package:mongo_dart/mongo_dart.dart' as mongo;
 import '../models/message/chat_collection.dart';
 import '../models/message/chat_collection_type.dart';
 import '../models/message/chat_member.dart';
+import '../models/message/last_message.dart';
+import '../models/message/message.dart';
 
 final users = [u1, u2, u3, u4, u5, u6, u7, u8, u9, u10, u11, u12, u13];
 final chatCollections = [
@@ -99,58 +101,82 @@ final c2 = ChatCollection(
     id: mongo.ObjectId(),
     type: ChatCollectionType.individual,
     members: [u1, u3],
+    lastMessage: LastMessage(
+        senderId: m1.senderId, timestamp: m1.timestamp, content: m1.content),
     unreadCount: 1);
 final c3 = ChatCollection(
+    lastMessage: LastMessage(
+        senderId: m5.senderId, timestamp: m5.timestamp, content: m5.content),
     id: mongo.ObjectId(),
     type: ChatCollectionType.individual,
     members: [u1, u4],
     unreadCount: 1);
 final c4 = ChatCollection(
+    lastMessage: LastMessage(
+        senderId: m1.senderId, timestamp: m1.timestamp, content: m1.content),
     id: mongo.ObjectId(),
     type: ChatCollectionType.individual,
     members: [u1, u5],
     unreadCount: 1);
 final c5 = ChatCollection(
+    lastMessage: LastMessage(
+        senderId: m1.senderId, timestamp: m1.timestamp, content: m1.content),
     id: mongo.ObjectId(),
     type: ChatCollectionType.individual,
     members: [u1, u6],
     unreadCount: 1);
 final c6 = ChatCollection(
+    lastMessage: LastMessage(
+        senderId: m1.senderId, timestamp: m1.timestamp, content: m1.content),
     id: mongo.ObjectId(),
     type: ChatCollectionType.individual,
     members: [u1, u7],
     unreadCount: 1);
 final c7 = ChatCollection(
+    lastMessage: LastMessage(
+        senderId: m1.senderId, timestamp: m1.timestamp, content: m1.content),
     id: mongo.ObjectId(),
     type: ChatCollectionType.individual,
     members: [u1, u8],
     unreadCount: 1);
 final c8 = ChatCollection(
+    lastMessage: LastMessage(
+        senderId: m1.senderId, timestamp: m1.timestamp, content: m1.content),
     id: mongo.ObjectId(),
     type: ChatCollectionType.individual,
     members: [u1, u9],
     unreadCount: 1);
 final c9 = ChatCollection(
+    lastMessage: LastMessage(
+        senderId: m1.senderId, timestamp: m1.timestamp, content: m1.content),
     id: mongo.ObjectId(),
     type: ChatCollectionType.individual,
     members: [u1, u10],
     unreadCount: 1);
 final c10 = ChatCollection(
+    lastMessage: LastMessage(
+        senderId: m1.senderId, timestamp: m1.timestamp, content: m1.content),
     id: mongo.ObjectId(),
     type: ChatCollectionType.individual,
     members: [u1, u11],
     unreadCount: 1);
 final c11 = ChatCollection(
+    lastMessage: LastMessage(
+        senderId: m1.senderId, timestamp: m1.timestamp, content: m1.content),
     id: mongo.ObjectId(),
     type: ChatCollectionType.individual,
     members: [u1, u12],
     unreadCount: 1);
 final c12 = ChatCollection(
+    lastMessage: LastMessage(
+        senderId: m1.senderId, timestamp: m1.timestamp, content: m1.content),
     id: mongo.ObjectId(),
     type: ChatCollectionType.individual,
     members: [u1, u13],
     unreadCount: 1);
 final c13 = ChatCollection(
+  lastMessage: LastMessage(
+      senderId: m1.senderId, timestamp: m1.timestamp, content: m1.content),
   id: mongo.ObjectId(),
   name: 'UET',
   type: ChatCollectionType.group,
@@ -160,6 +186,8 @@ final c13 = ChatCollection(
       "https://raw.githubusercontent.com/salmannaeem112215/images/main/profhile/square/g1.jpg",
 );
 final c14 = ChatCollection(
+  lastMessage: LastMessage(
+      senderId: m1.senderId, timestamp: m1.timestamp, content: m1.content),
   id: mongo.ObjectId(),
   type: ChatCollectionType.group,
   name: 'Route 5',
@@ -169,6 +197,8 @@ final c14 = ChatCollection(
       "https://raw.githubusercontent.com/salmannaeem112215/images/main/profhile/square/g2.jpg",
 );
 final c15 = ChatCollection(
+  lastMessage: LastMessage(
+      senderId: m1.senderId, timestamp: m1.timestamp, content: m1.content),
   id: mongo.ObjectId(),
   name: 'Route 6',
   type: ChatCollectionType.group,
@@ -178,6 +208,8 @@ final c15 = ChatCollection(
       "https://raw.githubusercontent.com/salmannaeem112215/images/main/profhile/square/g3.jpg",
 );
 final c16 = ChatCollection(
+  lastMessage: LastMessage(
+      senderId: m1.senderId, timestamp: m1.timestamp, content: m1.content),
   id: mongo.ObjectId(),
   name: 'Route 7',
   type: ChatCollectionType.group,
@@ -187,17 +219,94 @@ final c16 = ChatCollection(
       "https://raw.githubusercontent.com/salmannaeem112215/images/main/profhile/square/g4.jpg",
 );
 
-
-// final m1 = Message(id: mongo.ObjectId(), senderId: u1.userId, chatId: cc1.id, timestamp: DateTime.now(), content: "Hi! my name is Salman");
-// final m2 = Message(id: mongo.ObjectId(), senderId: u2.userId, chatId: cc2.id, timestamp: DateTime.now(), content: "Hi! my name is Salman");
-// final m3 = Message(id: mongo.ObjectId(), senderId: u3.userId, chatId: cc3.id, timestamp: DateTime.now(), content: "Hi! my name is Salman");
-// final m4 = Message(id: mongo.ObjectId(), senderId: u4.userId, chatId: cc4.id, timestamp: DateTime.now(), content: "Hi! my name is Salman");
-// final m5 = Message(id: mongo.ObjectId(), senderId: u5.userId, chatId: cc5.id, timestamp: DateTime.now(), content: "Hi! my name is Salman");
-// final m6 = Message(id: mongo.ObjectId(), senderId: u6.userId, chatId: cc6.id, timestamp: DateTime.now(), content: "Hi! my name is Salman");
-// final m7 = Message(id: mongo.ObjectId(), senderId: u7.userId, chatId: cc7.id, timestamp: DateTime.now(), content: "Hi! my name is Salman");
-// final m8 = Message(id: mongo.ObjectId(), senderId: u8.userId, chatId: cc8.id, timestamp: DateTime.now(), content: "Hi! my name is Salman");
-// final m9 = Message(id: mongo.ObjectId(), senderId: u9.userId, chatId: cc9.id, timestamp: DateTime.now(), content: "Hi! my name is Salman");
-// final m10 = Message(id: mongo.ObjectId(), senderId: u10.userId, chatId: cc10.id, timestamp: DateTime.now(), content: "Hi! my name is Salman");
-// final m11 = Message(id: mongo.ObjectId(), senderId: u11.userId, chatId: cc11.id, timestamp: DateTime.now(), content: "Hi! my name is Salman");
-// final m12 = Message(id: mongo.ObjectId(), senderId: u12.userId, chatId: cc12.id, timestamp: DateTime.now(), content: "Hi! my name is Salman");
-// final m13 = Message(id: mongo.ObjectId(), senderId: u13.userId, chatId: cc13.id, timestamp: DateTime.now(), content: "Hi! my name is Salman");
+final m1 = Message(
+    id: mongo.ObjectId(),
+    senderId: u1.userId,
+    chatId: c1.id,
+    timestamp: DateTime.now(),
+    content:
+        "Hi! my name is Salman sda asdsad sad sadasdasdasdasda sadsadasd sa d das");
+final m2 = Message(
+    id: mongo.ObjectId(),
+    senderId: u2.userId,
+    chatId: c2.id,
+    timestamp: DateTime.now(),
+    content:
+        "Hi! my name is Salman sda asdsad sad sadasdasdasdasda sadsadasd sa d das");
+final m3 = Message(
+    id: mongo.ObjectId(),
+    senderId: u3.userId,
+    chatId: c3.id,
+    timestamp: DateTime.now(),
+    content:
+        "Hi! my name is Salman sda asdsad sad sadasdasdasdasda sadsadasd sa d das");
+final m4 = Message(
+    id: mongo.ObjectId(),
+    senderId: u4.userId,
+    chatId: c4.id,
+    timestamp: DateTime.now(),
+    content:
+        "Hi! my name is Salman sda asdsad sad sadasdasdasdasda sadsadasd sa d das");
+final m5 = Message(
+    id: mongo.ObjectId(),
+    senderId: u5.userId,
+    chatId: c5.id,
+    timestamp: DateTime.now(),
+    content:
+        "Hi! my name is Salman sda asdsad sad sadasdasdasdasda sadsadasd sa d das");
+final m6 = Message(
+    id: mongo.ObjectId(),
+    senderId: u6.userId,
+    chatId: c6.id,
+    timestamp: DateTime.now(),
+    content:
+        "Hi! my name is Salman sda asdsad sad sadasdasdasdasda sadsadasd sa d das");
+final m7 = Message(
+    id: mongo.ObjectId(),
+    senderId: u7.userId,
+    chatId: c7.id,
+    timestamp: DateTime.now(),
+    content:
+        "Hi! my name is Salman sda asdsad sad sadasdasdasdasda sadsadasd sa d das");
+final m8 = Message(
+    id: mongo.ObjectId(),
+    senderId: u8.userId,
+    chatId: c8.id,
+    timestamp: DateTime.now(),
+    content:
+        "Hi! my name is Salman sda asdsad sad sadasdasdasdasda sadsadasd sa d das");
+final m9 = Message(
+    id: mongo.ObjectId(),
+    senderId: u9.userId,
+    chatId: c9.id,
+    timestamp: DateTime.now(),
+    content:
+        "Hi! my name is Salman sda asdsad sad sadasdasdasdasda sadsadasd sa d das");
+final m10 = Message(
+    id: mongo.ObjectId(),
+    senderId: u10.userId,
+    chatId: c10.id,
+    timestamp: DateTime.now(),
+    content:
+        "Hi! my name is Salman sda asdsad sad sadasdasdasdasda sadsadasd sa d das");
+final m11 = Message(
+    id: mongo.ObjectId(),
+    senderId: u11.userId,
+    chatId: c11.id,
+    timestamp: DateTime.now(),
+    content:
+        "Hi! my name is Salman sda asdsad sad sadasdasdasdasda sadsadasd sa d das");
+final m12 = Message(
+    id: mongo.ObjectId(),
+    senderId: u12.userId,
+    chatId: c12.id,
+    timestamp: DateTime.now(),
+    content:
+        "Hi! my name is Salman sda asdsad sad sadasdasdasdasda sadsadasd sa d das");
+final m13 = Message(
+    id: mongo.ObjectId(),
+    senderId: u13.userId,
+    chatId: c13.id,
+    timestamp: DateTime.now(),
+    content:
+        "Hi! my name is Salman sda asdsad sad sadasdasdasdasda sadsadasd sa d das");

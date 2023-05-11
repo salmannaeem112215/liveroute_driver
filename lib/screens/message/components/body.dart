@@ -15,6 +15,7 @@ class Body extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final avaliableHeight = Responsive.avaliableHeight(context);
+    final width = Responsive.avaliableWidth(context) - 2 * defaultPadding;
     final userId = u1.userId;
     return SizedBox(
       height: avaliableHeight < 100 ? 100 : avaliableHeight,
@@ -22,6 +23,7 @@ class Body extends StatelessWidget {
           listTile: (chat) => ChatTile(
                 color: Colors.transparent,
                 chatCollection: ChatCollection.fromJson(chat),
+                width: width,
               ),
           // seprateBuilder: (ctx, index) => kHalfHeightpace,
           getValues: MessageServices.getUserChats(userId)),
