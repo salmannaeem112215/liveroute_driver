@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:get/get.dart';
+import 'package:liveroute_driver/controllers/custom_menu_controller.dart';
 import '../../../configs/themes/app_color.dart';
 import '../../../functions/time.dart';
 import '../../../models/message/chat_collection.dart';
@@ -37,7 +39,7 @@ class _ChatTileState extends State<ChatTile> {
     final timestamp = widget.chatCollection.chatTimestamp;
     final content = widget.chatCollection.chatContent;
 
-    final avaliableTileWidth = widget.width - 2 * defaultPadding;
+    final avaliableTileWidth = widget.width;
     final double imageWidth = widget.imageHeight < 60 ? 60 : widget.imageHeight;
 
     final sTextWidth = avaliableTileWidth - imageWidth - defaultPadding;
@@ -56,7 +58,7 @@ class _ChatTileState extends State<ChatTile> {
             borderRadius: BorderRadius.circular(defaultPadding)),
         child: Container(
           padding: const EdgeInsets.symmetric(
-              horizontal: defaultPadding, vertical: defaultPadding / 2),
+              horizontal: 0, vertical: defaultPadding / 2),
           child: SingleChildScrollView(
             scrollDirection: Axis.horizontal,
             controller: controller,
@@ -129,8 +131,7 @@ class _ChatTileState extends State<ChatTile> {
       isLoading = true;
     });
 
-    // await widget.onTap();
-    // await widget.onTap!();
+    Get.find<CustomMenuController>().selectedItem.value = MenuItems.profhile;
 
     setState(() {
       isLoading = false;

@@ -9,6 +9,7 @@ import 'package:get/get.dart';
 
 import '../../controllers/custom_menu_controller.dart';
 
+import '../chat/chat_screen.dart';
 import '../home/home_screen.dart';
 import '../message/message_screen.dart';
 import '../route/route_screen.dart';
@@ -53,7 +54,7 @@ class MainScreen extends StatelessWidget {
     } else if (menuItem == MenuItems.message) {
       return const MessageScreen();
     } else if (menuItem == MenuItems.profhile) {
-      return const ProfhileScreen();
+      return const ChatScreen();
     } else if (menuItem == MenuItems.login) {
       return const DLoginScreen();
     } else {

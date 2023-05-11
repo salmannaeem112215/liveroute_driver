@@ -7,7 +7,6 @@ import '../../../responsive.dart';
 import '../../../services/message_data.dart';
 import '../../../services/message_services.dart';
 import '../../../widgets/future_list.dart';
-import '../../home/components/chat_circle_tile.dart';
 
 class Body extends StatelessWidget {
   const Body({super.key});
@@ -25,7 +24,6 @@ class Body extends StatelessWidget {
                 chatCollection: ChatCollection.fromJson(chat),
                 width: width,
               ),
-          // seprateBuilder: (ctx, index) => kHalfHeightpace,
           getValues: MessageServices.getUserChats(userId)),
     );
   }
