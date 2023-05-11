@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get_connect/http/src/utils/utils.dart';
 import '../../../configs/themes/custom_text_styles.dart';
 import '../../../configs/themes/ui_parameters.dart';
 
@@ -16,8 +15,8 @@ class LoginForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final FocusNode _emailFocusNode = FocusNode();
-    final FocusNode _passwordFocusNode = FocusNode();
+    final FocusNode emailFocusNode = FocusNode();
+    final FocusNode passwordFocusNode = FocusNode();
     return Form(
       key: formKey,
       child: Column(
@@ -33,10 +32,10 @@ class LoginForm extends StatelessWidget {
               label: kTextFormLabel('Email'),
             ),
             textInputAction: TextInputAction.next,
-            focusNode: _emailFocusNode,
+            focusNode: emailFocusNode,
             onFieldSubmitted: (term) {
-              _emailFocusNode.unfocus();
-              FocusScope.of(context).requestFocus(_passwordFocusNode);
+              emailFocusNode.unfocus();
+              FocusScope.of(context).requestFocus(passwordFocusNode);
             },
             validator: emailValidator,
           ),
@@ -53,7 +52,7 @@ class LoginForm extends StatelessWidget {
               label: kTextFormLabel('Password'),
             ),
             textInputAction: TextInputAction.done,
-            focusNode: _passwordFocusNode,
+            focusNode: passwordFocusNode,
             validator: passwordValidator,
           ),
         ],

@@ -5,7 +5,7 @@ import '../../responsive.dart';
 import './components/body.dart';
 
 class DLoginScreen extends StatelessWidget {
-  const DLoginScreen({Key? key});
+  const DLoginScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

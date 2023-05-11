@@ -23,7 +23,6 @@ class RouteSection extends StatelessWidget {
               MenuItems.route,
         ),
 
-        kHalfHeightpace,
         SizedBox(
           height: height,
           child: ListView.separated(
@@ -35,7 +34,7 @@ class RouteSection extends StatelessWidget {
               onTap: () async {},
               color: Colors.pink,
             ),
-            separatorBuilder: (ctx, index) => kHeightSpace,
+            separatorBuilder: (ctx, index) => kHalfHeightpace,
             itemCount: 7,
           ),
         ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 
 class ChatCircleTile extends StatelessWidget {
   const ChatCircleTile({
@@ -20,7 +21,14 @@ class ChatCircleTile extends StatelessWidget {
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(height / 2),
           ),
-          child: Image.asset(image),
+          child: CachedNetworkImage(
+            imageUrl: image,
+            placeholder: (context, url) => const CircularProgressIndicator(),
+            errorWidget: (context, url, error) => Icon(
+              Icons.person,
+              size: height / 2,
+            ),
+          ),
         ),
         Container(
           height: height,

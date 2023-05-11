@@ -1,9 +1,12 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../controllers/custom_menu_controller.dart';
 import '../../../responsive.dart';
 import '../../../configs/themes/ui_parameters.dart';
+import '../../../services/services.dart';
+import '../../../widgets/future_list.dart';
 import './rotue_tile.dart';
 import './custom_title.dart';
 
@@ -12,6 +15,7 @@ class TrackingSection extends StatelessWidget {
   final double height;
   @override
   Widget build(BuildContext context) {
+    // final List<Map<String, dynamic>>? res = Services.getRoutes();
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -21,19 +25,22 @@ class TrackingSection extends StatelessWidget {
           seeAll: () => Get.find<CustomMenuController>().selectedItem.value =
               MenuItems.tracking,
         ),
-        kHalfHeightpace,
         SizedBox(
           height: height,
-          child: ListView.separated(
-            itemBuilder: (ctx, index) => RouteTile(
-              type: 'M',
-              name: '5',
-              driver: 'Rana',
-              bus: 'LEK-007',
-              onTap: () async {},
+          child: FutureList(
+            getValues: Services.getRoutes(),
+            seprateBuilder: (ctx, index) => kHalfHeightpace,
+            listTile: (route) => RouteTile(
+              type: route['type'],
+              name: route['name'],
+              bus: route['bus'],
+              driver: route['driver'],
+              onTap: () async {
+                if (kDebugMode) {
+                  print(route);
+                }
+              },
             ),
-            separatorBuilder: (ctx, index) => kHeightSpace,
-            itemCount: 7,
           ),
         ),
       ],

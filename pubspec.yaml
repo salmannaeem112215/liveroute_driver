@@ -18,6 +18,7 @@ dependencies:
   mapbox_gl: ^0.16.0
   location: ^4.4.0
   geolocator: ^9.0.2
+  cached_network_image: ^3.2.3
 
 dev_dependencies:
   flutter_test:

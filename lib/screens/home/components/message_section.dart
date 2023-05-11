@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import '../../../../services/message_services.dart';
 
 import '../../../controllers/custom_menu_controller.dart';
+import '../../../models/message/chat_collection.dart';
 import '../../../responsive.dart';
 import '../../../configs/themes/ui_parameters.dart';
+import '../../../services/message_data.dart';
+import '../../../widgets/future_list.dart';
 import './chat_circle_tile.dart';
 import './custom_title.dart';
 
@@ -16,6 +20,7 @@ class MessageSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final userId = u1.userId;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -25,18 +30,14 @@ class MessageSection extends StatelessWidget {
           seeAll: () => Get.find<CustomMenuController>().selectedItem.value =
               MenuItems.message,
         ),
-        kHalfHeightpace,
         SizedBox(
           height: height,
-          child: ListView.separated(
-            scrollDirection: Axis.horizontal,
-            itemBuilder: (ctx, index) => ChatCircleTile(
-              image: 'assets/images/logo.png',
-              height: height,
-            ),
-            separatorBuilder: (ctx, index) => kHalfWidthSpace,
-            itemCount: 7,
-          ),
+          child: FutureList(
+              scrollDirection: Axis.horizontal,
+              listTile: (chat) =>
+                  ChatCircleTile(image: ChatCollection.getImage(chat, userId)),
+              seprateBuilder: (ctx, index) => kHalfWidthSpace,
+              getValues: MessageServices.getUserChats(userId)),
         ),
       ],
     );

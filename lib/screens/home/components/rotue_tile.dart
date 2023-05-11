@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import '../../../configs/themes/app_color.dart';
 import '../../../configs/themes/custom_text_styles.dart';
 import '../../../configs/themes/ui_parameters.dart';
@@ -86,7 +87,7 @@ class _RouteTileState extends State<RouteTile> {
     });
 
     // await widget.onTap();
-    await Future.delayed(Duration(seconds: 2));
+    await widget.onTap!();
 
     setState(() {
       isLoading = false;

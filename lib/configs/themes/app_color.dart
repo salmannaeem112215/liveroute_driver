@@ -7,7 +7,7 @@ Color card2Color = const Color(0xFF444654);
 const double appBarIconRadius = 10;
 const textFieldPadding = EdgeInsets.only(left: 20, top: 8, bottom: 8, right: 8);
 
-const Color logoBlack = const Color(0xFF454545);
+const Color logoBlack = Color(0xFF454545);
 const Color primaryColorDark = Color(0xFF353541);
 const Color cardColorDark = Color(0xFF454654);
 const Color cardHoverColorDark = Color(0xFF202123);
