@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:liveroute_driver/screens/home/components/chat_tile.dart';
+import 'package:liveroute_driver/widgets/header.dart';
 
 import '../../../configs/themes/ui_parameters.dart';
 import '../../../models/message/chat_collection.dart';
@@ -13,18 +14,21 @@ class Body extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final avaliableHeight = Responsive.avaliableHeight(context);
-    final width = Responsive.avaliableWidth(context) - 2 * defaultPadding;
     final userId = u1.userId;
-    return SizedBox(
-      height: avaliableHeight < 100 ? 100 : avaliableHeight,
-      child: FutureList(
-          listTile: (chat) => ChatTile(
-                color: Colors.transparent,
-                chatCollection: ChatCollection.fromJson(chat),
-                width: width,
-              ),
-          getValues: MessageServices.getUserChats(userId)),
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.start,
+      children: [
+        const Header(title: 'Message'),
+        Flexible(
+          child: FutureList(
+              listTile: (chat) => ChatTile(
+                    color: Colors.transparent,
+                    chatCollection: ChatCollection.fromJson(chat),
+                    // width: width,
+                  ),
+              getValues: MessageServices.getUserChats(userId)),
+        ),
+      ],
     );
   }
 }

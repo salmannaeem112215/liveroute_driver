@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:liveroute_driver/configs/themes/ui_parameters.dart';
 
 import '../../../controllers/custom_menu_controller.dart';
 import '../../../responsive.dart';
@@ -16,30 +17,33 @@ class Header extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final menuController = Get.find<CustomMenuController>();
-    return SingleChildScrollView(
-      scrollDirection: Axis.horizontal,
-      child: Row(
-        mainAxisSize: MainAxisSize.max,
-        children: [
-          if (!Responsive.isDesktop(context))
-            IconButton(
-              onPressed: menuController.controlMenu,
-              icon: Icon(
-                Icons.menu,
+    return SizedBox(
+      height: 50,
+      child: Center(
+        child: Row(
+          mainAxisSize: MainAxisSize.max,
+          children: [
+            if (!Responsive.isDesktop(context))
+              IconButton(
+                onPressed: menuController.controlMenu,
+                icon: Icon(
+                  Icons.menu,
+                  color: color,
+                ),
+              ),
+            if (Responsive.isDesktop(context)) kHalfWidthSpace,
+            Text(
+              title,
+              style: TextStyle(
                 color: color,
+                fontSize: 20,
+                fontWeight: FontWeight.w500,
               ),
             ),
-          Text(
-            title,
-            style: TextStyle(
-              color: color,
-              fontSize: 20,
-              fontWeight: FontWeight.w500,
-            ),
-          ),
 
-          // const Expanded(child: SearchFeild())
-        ],
+            // const Expanded(child: SearchFeild())
+          ],
+        ),
       ),
     );
   }

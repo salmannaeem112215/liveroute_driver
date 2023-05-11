@@ -44,6 +44,11 @@ const kTileTitle = TextStyle(
   fontSize: 18,
   fontWeight: FontWeight.w400,
 );
+const kChatNameTitle = TextStyle(
+  color: logoBlack,
+  fontSize: 17,
+  fontWeight: FontWeight.w400,
+);
 
 const kTileSubTitle = TextStyle(
   color: Colors.white70,

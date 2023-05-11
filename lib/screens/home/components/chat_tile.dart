@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:get/get.dart';
+import 'package:liveroute_driver/configs/themes/custom_text_styles.dart';
 import 'package:liveroute_driver/controllers/custom_menu_controller.dart';
 import '../../../configs/themes/app_color.dart';
 import '../../../functions/time.dart';
@@ -29,24 +30,24 @@ class ChatTile extends StatefulWidget {
 
 class _ChatTileState extends State<ChatTile> {
   bool isLoading = false;
-  final c = 'd';
+  String image = '';
+  String name = '';
+  int? unreadCount;
+  DateTime? timestamp;
+  String? content;
+
+  @override
+  void initState() {
+    image = widget.chatCollection.chatImage ?? '';
+    name = widget.chatCollection.chatName ?? '';
+    unreadCount = widget.chatCollection.chatUnreadCount;
+    timestamp = widget.chatCollection.chatTimestamp;
+    content = widget.chatCollection.chatContent;
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
-    final image = widget.chatCollection.chatImage ?? '';
-    final name = widget.chatCollection.chatName ?? '';
-    final unreadCount = widget.chatCollection.chatUnreadCount;
-    final timestamp = widget.chatCollection.chatTimestamp;
-    final content = widget.chatCollection.chatContent;
-
-    // final avaliableTileWidth = widget.width;
-    // final double imageWidth = widget.imageHeight < 60 ? 60 : widget.imageHeight;
-
-    // final sTextWidth = avaliableTileWidth - imageWidth - defaultPadding;
-    // final double textWidth = sTextWidth < 100 ? 100 : sTextWidth;
-
-    // final s =
-    final controller = ScrollController();
     return Material(
       shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(defaultPadding)),
@@ -58,7 +59,7 @@ class _ChatTileState extends State<ChatTile> {
             borderRadius: BorderRadius.circular(defaultPadding)),
         child: Container(
           padding: const EdgeInsets.symmetric(
-              horizontal: 0, vertical: defaultPadding / 2),
+              horizontal: defaultPadding / 2, vertical: defaultPadding / 2),
           child: Row(
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.start,
@@ -69,44 +70,42 @@ class _ChatTileState extends State<ChatTile> {
               ),
               kWidthSpace,
               Flexible(
-                child: Container(
-                  color: Colors.white,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Row(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Flexible(
-                            child: Text(
-                              name,
-                              overflow: TextOverflow.ellipsis,
-                            ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Flexible(
+                          child: Text(
+                            name.capitalize ?? '',
+                            overflow: TextOverflow.ellipsis,
+                            style: kChatNameTitle,
                           ),
-                          if (timestamp != null)
-                            Text(
-                              formatTime(timestamp.hour, timestamp.minute),
-                            ),
-                        ],
-                      ),
-                      kHalfHeightpace,
-                      Row(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Flexible(
-                            child: Text(
-                              content ?? '',
-                              overflow: TextOverflow.ellipsis,
-                            ),
+                        ),
+                        if (timestamp != null)
+                          Text(
+                            formatTime(timestamp!.hour, timestamp!.minute),
                           ),
-                          kWidthSpace,
-                          NotificationCircle(num: unreadCount ?? -1),
-                        ],
-                      ),
-                    ],
-                  ),
+                      ],
+                    ),
+                    kHalfHeightpace,
+                    Row(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Flexible(
+                          child: Text(
+                            content ?? '',
+                            overflow: TextOverflow.ellipsis,
+                          ),
+                        ),
+                        kWidthSpace,
+                        NotificationCircle(num: unreadCount ?? -1),
+                      ],
+                    ),
+                  ],
                 ),
               ),
             ],

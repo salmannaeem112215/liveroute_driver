@@ -1,17 +1,12 @@
-import 'dart:io';
-
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:liveroute_driver/screens/home/components/chat_tile.dart';
+import '../../../screens/home/components/chat_tile.dart';
 
-import '../../../configs/themes/ui_parameters.dart';
 import '../../../models/message/chat_collection.dart';
-import '../../../responsive.dart';
 import '../../../services/message_data.dart';
 import '../../../services/message_services.dart';
 import '../../../widgets/future_list.dart';
 import './chat_typing_area.dart';
-import 'chat_header.dart';
+import './chat_header.dart';
 
 class Body extends StatelessWidget {
   const Body({super.key});
